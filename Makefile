@@ -1,2 +1,2 @@
-kilo: kilo.c
-	$(CC) kilo.c -o kilo -Wall -Wextra -pedantic -std=c99
+kwed: main.c
+	$(CC) main.c -lcurses -o kwed -Wall -Wextra -pedantic -std=c99
