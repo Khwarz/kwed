@@ -5,7 +5,7 @@
 
 #define CTRL_KEY(k) ((k) & 0x1f)
 
-void screen_create() {
+void screen_init() {
     setlocale(LC_ALL, "");
     initscr();
     cbreak();
@@ -18,8 +18,11 @@ void screen_create() {
 void editor_process_key_event() {
     int c = wgetch(stdscr);
 
-    if (c == CTRL_KEY('q')) {
-        exit(0);
+    switch (c) {
+        case CTRL_KEY('q'):
+            exit(0);
+        default:
+            addch(c);
     }
 }
 
@@ -30,7 +33,7 @@ void screen_destroy() {
 
 int main(int argc, char *argv[argc + 1]) {
     atexit(screen_destroy);
-    screen_create();
+    screen_init();
     while (1) {
         editor_process_key_event();
     }
