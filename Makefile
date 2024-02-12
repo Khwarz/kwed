@@ -1,2 +1,2 @@
-kwed: main.c
-	$(CC) main.c -lcurses -o kwed -Wall -Wextra -pedantic -std=c99
+kwed: src/*.c
+	$(CC) src/main.c -lcurses -o kwed -Wall -Wextra -pedantic -std=c99
